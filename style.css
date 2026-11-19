@@ -1,0 +1,101 @@
+/* VARIABLES DE ESTILO */
+:root {
+  --color-fondo: #111111;
+  --color-texto: #ffffff;
+  --color-hover: #cccccc;
+  --fuente-principal: Arial, sans-serif;
+  --logo-grande: 38px;
+  --logo-mediano: 27px;
+  --logo-pequeno: 23px;
+  --espacio-menu: 20px;
+  --altura-header: 75px;
+}
+
+/* ESTILOS GENERALES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fuente-principal);
+}
+
+/* HEADER */
+.header {
+  width: 100%;
+  min-height: var(--altura-header);
+  background-color: var(--color-fondo);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+}
+
+.logo {
+  color: var(--color-texto);
+  font-size: var(--logo-grande);
+  font-weight: bold;
+}
+
+.nav {
+  display: flex;
+  gap: var(--espacio-menu);
+}
+
+.nav a {
+  color: var(--color-texto);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  color: var(--color-hover);
+}
+
+.menu-toggle {
+  display: none;
+  color: var(--color-texto);
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* TABLET */
+@media (max-width: 900px) and (min-width: 601px) {
+  .logo { font-size: var(--logo-mediano); }
+  .nav { gap: 12px; }
+  .nav a { font-size: 13px; }
+  .header { padding: 10px 18px; }
+}
+
+/* CELULAR */
+@media (max-width: 600px) {
+  .header {
+    min-height: 60px;
+    padding: 10px 15px;
+    position: relative;
+  }
+
+  .logo { font-size: var(--logo-pequeno); }
+  .menu-toggle { display: block; }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-fondo);
+    flex-direction: column;
+    padding: 15px 20px;
+    gap: 18px;
+    z-index: 10;
+  }
+
+  .nav.active { display: flex; }
+  .nav a { font-size: 15px; }
+}
